@@ -1,0 +1,76 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+
+gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
+
+const STEPS = [
+  { title: "Diagnóstico", desc: "Entendemos meta, restrições e o que define acerto — sem jargão vazio." },
+  { title: "Arquitetura", desc: "Desenho técnico, stack e cronograma. O arco é armado aqui." },
+  { title: "Desenvolvimento", desc: "Sprints curtos, preview contínuo, qualidade medida em cada merge." },
+  { title: "Entrega & suporte", desc: "Deploy observável, handover documentado e evolução contínua." },
+];
+
+export default function Process() {
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const ctx = gsap.context(() => {
+      gsap.to("[data-arrow-point]", {
+        ease: "none",
+        motionPath: { path: "[data-arrow-path]", align: "[data-arrow-path]", alignOrigin: [0.5, 0.5] },
+        scrollTrigger: { trigger: "[data-track]", start: "top 75%", end: "bottom 40%", scrub: true },
+      });
+      gsap.fromTo("[data-process-fill]", { scaleY: 0 }, {
+        scaleY: 1,
+        ease: "none",
+        scrollTrigger: { trigger: "[data-track]", start: "top 70%", end: "bottom 55%", scrub: true },
+      });
+      gsap.utils.toArray<HTMLElement>("[data-step]").forEach((el, i) => {
+        gsap.fromTo(el, { opacity: 0.7 }, {
+          opacity: 1,
+          scrollTrigger: { trigger: el, start: "top 80%", end: "top 50%", scrub: true },
+        });
+        void i;
+      });
+    }, ref);
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section ref={ref} id="processo" className="bg-[#0A0A0C] py-28 md:py-36" aria-labelledby="processo-title">
+      <div className="mx-auto max-w-6xl px-6">
+        <p className="font-data mb-4 text-[11px] tracking-[0.4em] text-[#C9B896]">03 — TRAJETÓRIA</p>
+        <h2 id="processo-title" className="font-display max-w-2xl text-3xl text-zinc-50 md:text-5xl">A trajetória da flecha, do diagnóstico ao impacto.</h2>
+
+        <div data-track className="relative mt-14 grid gap-10 md:grid-cols-[120px_1fr]">
+          {/* curved SVG trajectory */}
+          <div className="relative hidden md:block" aria-hidden>
+            <svg viewBox="0 0 120 640" className="h-[640px] w-[120px]">
+              <path data-arrow-path d="M60 10 C 100 180, 20 320, 60 470 C 80 560, 70 600, 60 630" stroke="#2c2c33" strokeWidth="2" fill="none" strokeDasharray="6 8" />
+              <circle data-arrow-point cx="0" cy="0" r="7" fill="#C9B896" />
+              <circle data-arrow-point cx="0" cy="0" r="14" fill="none" stroke="#C9B896" opacity="0.4" />
+            </svg>
+          </div>
+          <ol className="relative space-y-8 pl-6">
+            {/* trilho + preenchimento que acompanha o scroll */}
+            <div className="absolute top-2 bottom-2 left-0 w-px bg-white/10" aria-hidden>
+              <div data-process-fill className="h-full w-full origin-top scale-y-0 bg-[#C9B896]" />
+            </div>
+            {STEPS.map((s, i) => (
+              <li key={s.title} data-step className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
+                <p className="text-xs tracking-[0.3em] text-[#C9B896]">ETAPA 0{i + 1}</p>
+                <h3 className="font-display mt-2 text-2xl text-zinc-50">{s.title}</h3>
+                <p className="mt-2 max-w-xl text-sm leading-6 text-zinc-400">{s.desc}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </section>
+  );
+}
