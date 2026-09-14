@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
-import IntroOverlay from "@/components/IntroOverlay";
 
 const display = Fraunces({
   variable: "--font-display",
@@ -66,7 +65,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Pular para o conteúdo
         </a>
         <SmoothScroll>
-          <IntroOverlay />
           <div id="conteudo">{children}</div>
         </SmoothScroll>
       </body>

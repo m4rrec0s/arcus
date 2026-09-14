@@ -1,20 +1,45 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Reveal } from "@/components/Reveal";
-import Warrior from "@/components/Warrior";
 
-const ArrowFlight = dynamic(() => import("@/components/ArrowFlight"), {
-  ssr: false,
-  loading: () => null,
-});
+gsap.registerPlugin(ScrollTrigger);
 
 /**
- * 06 — MIRA: o arco encontra a mão do espartano (esboço vazado),
- * a flecha percorre a faixa com o scroll e crava no alvo.
+ * 06 — MIRA: foto do arqueiro com parallax dirigido pelo scroll.
  * Parágrafo associado: assertividade.
  */
 export default function Mira() {
+  const flightRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const ctx = gsap.context(() => {
+      gsap.fromTo("[data-mira-media]", { scale: 1.18, clipPath: "inset(10% 6% round 20px)" }, {
+        scale: 1,
+        clipPath: "inset(0% 0% round 16px)",
+        ease: "none",
+        scrollTrigger: { trigger: flightRef.current, start: "top 85%", end: "center center", scrub: 0.6 },
+      });
+      const video = videoRef.current;
+      if (video) {
+        ScrollTrigger.create({
+          trigger: flightRef.current,
+          start: "top 85%",
+          end: "bottom 15%",
+          onEnter: () => void video.play(),
+          onEnterBack: () => void video.play(),
+          onLeave: () => video.pause(),
+          onLeaveBack: () => video.pause(),
+        });
+      }
+    }, flightRef);
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section id="mira" className="relative overflow-hidden bg-[#0A0A0C] py-28 md:py-36" aria-labelledby="mira-title">
       <div className="mx-auto max-w-6xl px-6">
@@ -23,11 +48,8 @@ export default function Mira() {
           O arco encontra <span className="text-[#C9B896]">a mão.</span>
         </h2>
 
-        <div className="mt-12 grid items-center gap-10 md:grid-cols-2">
+        <div className="mt-12 max-w-2xl">
           <Reveal>
-            <Warrior />
-          </Reveal>
-          <Reveal delay={0.1}>
             <p className="font-data text-xs tracking-[0.3em] text-zinc-500">O ARQUEIRO</p>
             <p className="mt-4 text-base leading-7 text-zinc-400 md:text-lg">
               Ferramenta sem mão é enfeite. O arco da ARCUS só existe armado:
@@ -39,16 +61,29 @@ export default function Mira() {
         </div>
       </div>
 
-      {/* faixa de voo: 3D dirigido pelo scroll */}
+      {/* faixa do arqueiro: foto com parallax dirigido pelo scroll */}
       <div className="mx-auto mt-6 max-w-6xl px-6">
-        <div id="mira-flight" className="relative h-[62vh] min-h-[420px] overflow-hidden rounded-2xl border border-white/10 bg-black/40">
+        <div ref={flightRef} id="mira-flight" className="relative h-[62vh] min-h-[420px] overflow-hidden rounded-2xl border border-white/10 bg-black/40">
+          <div data-mira-media className="absolute -inset-[8%] overflow-hidden will-change-transform">
+            <video
+              ref={videoRef}
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="/parallax/mira-archer.webp"
+              className="h-full w-full object-cover object-[68%_center]"
+            >
+              <source src="/video_arqueiro_espartano.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C]/60 via-transparent to-transparent" />
           <div className="grain absolute inset-0" aria-hidden />
-          <ArrowFlight />
           <p className="font-data pointer-events-none absolute top-4 left-5 text-[11px] tracking-[0.35em] text-zinc-500">
-            VOO · SCROLL DIRIGE
+            MIRA · SCROLL DIRIGE
           </p>
           <p className="font-data pointer-events-none absolute top-4 right-5 text-[11px] tracking-[0.35em] text-[#C9B896]">
-            ALVO →
+            ARCO →
           </p>
         </div>
       </div>

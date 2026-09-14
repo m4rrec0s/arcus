@@ -1,69 +1,114 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
-import { Reveal } from "@/components/Reveal";
 
-const CASES = [
+gsap.registerPlugin(ScrollTrigger);
+
+const PROJECTS = [
   {
+    number: "I",
     name: "Cesto d'Amore",
-    segment: "E-commerce · Cestas e presentes",
-    result: "Catálogo, pedidos e operação sob medida.",
-    href: "#contato",
+    segment: "E-commerce editorial",
+    result: "Catálogo, pedidos e operação sob medida para presentes memoráveis.",
+    image: "/parallax/hero-bg.webp",
   },
   {
+    number: "II",
     name: "Concessionária Honda",
-    segment: "Automotivo · Campina Grande/PB",
-    result: "Presença digital + captação de leads qualificados.",
-    href: "#contato",
+    segment: "Captação automotiva",
+    result: "Presença digital com jornada de lead pensada para velocidade comercial.",
+    image: "/parallax/hero-columns.webp",
   },
   {
-    name: "Seu projeto",
-    segment: "Próximo alvo",
-    result: "Espaço reservado para o terceiro destaque do portfólio.",
-    href: "#contato",
+    number: "III",
+    name: "Nexus Operations",
+    segment: "Operação conectada",
+    result: "Painel privado para unificar rotina, dados e decisões de time.",
+    image: "/parallax/hero-bow.webp",
+  },
+  {
+    number: "IV",
+    name: "Orla Studio",
+    segment: "Marca e conversão",
+    result: "Site institucional concebido como primeira conversa de uma marca premium.",
+    image: "/parallax/mira-archer.webp",
+  },
+  {
+    number: "V",
+    name: "Vértice Logística",
+    segment: "Automação de fluxo",
+    result: "Integrações que removem trabalho manual entre comercial, operação e entrega.",
+    image: "/parallax/cta-arrow.webp",
+  },
+  {
+    number: "VI",
+    name: "Seu próximo alvo",
+    segment: "Em construção",
+    result: "Espaço reservado para projeto que merece uma execução de precisão.",
+    image: "/parallax/texture-marble.webp",
   },
 ];
 
 export default function Cases() {
-  const onTilt = (e: React.MouseEvent<HTMLElement>) => {
+  const ref = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const card = e.currentTarget;
-    const r = card.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    card.style.transform = `perspective(900px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translate3d(0,0,0)`;
-  };
-  const reset = (e: React.MouseEvent<HTMLElement>) => {
-    e.currentTarget.style.transform = "perspective(900px) rotateY(0deg) rotateX(0deg)";
-  };
+    const track = trackRef.current;
+    if (!track) return;
+    const media = gsap.matchMedia();
+    media.add("(min-width: 768px)", () => {
+      const distance = () => track.scrollWidth - window.innerWidth;
+      return gsap.to(track, {
+        x: () => -distance(),
+        ease: "none",
+        scrollTrigger: {
+          trigger: ref.current,
+          start: "top top",
+          end: () => `+=${distance()}`,
+          pin: true,
+          pinSpacing: true,
+          scrub: 0.8,
+          invalidateOnRefresh: true,
+        },
+      });
+    });
+    return () => media.revert();
+  }, []);
 
   return (
-    <section id="cases" className="bg-[#0A0A0C] py-28 md:py-36" aria-labelledby="cases-title">
-      <div className="mx-auto max-w-6xl px-6">
-        <p className="font-data mb-4 text-[11px] tracking-[0.4em] text-[#C9B896]">05 — ACERTOS</p>
-        <h2 id="cases-title" className="font-display max-w-2xl text-3xl text-zinc-50 md:text-5xl">Alvos atingidos.</h2>
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {CASES.map((c) => (
-            <Reveal key={c.name}>
-              <a
-                href={c.href}
-                onMouseMove={onTilt}
-                onMouseLeave={reset}
-                className="group flex min-h-64 flex-col justify-between rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.05] to-transparent p-7 transition-colors hover:border-[#C9B896]/50 will-change-transform"
-              >
-                <div>
-                  <p className="text-xs tracking-widest text-zinc-400 uppercase">{c.segment}</p>
-                  <p className="font-display mt-3 text-2xl text-zinc-50">{c.name}</p>
-                  <p className="mt-2 text-sm leading-6 text-zinc-400">{c.result}</p>
-                </div>
-                <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-[#C9B896]">
-                  Ver case <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </span>
-              </a>
-            </Reveal>
-          ))}
+    <section ref={ref} id="cases" className="relative z-10 overflow-hidden bg-[#17120b] py-20 md:h-svh md:py-0" aria-labelledby="cases-title">
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(23,18,11,.2),rgba(23,18,11,.8))]" />
+      <div ref={trackRef} className="relative flex w-max items-center gap-7 px-6 md:h-full md:gap-12 md:px-[12vw]">
+        <header className="w-[min(78vw,600px)] shrink-0 text-[#f2e7cb]">
+          <p className="font-data mb-5 text-[11px] tracking-[.4em] text-[#c9b896]">05 — ACERTOS</p>
+          <h2 id="cases-title" className="font-display text-5xl leading-[.92] md:text-7xl">Projetos em<br />forma de <span className="text-[#c9b896]">legado.</span></h2>
+          <p className="mt-7 max-w-sm text-sm leading-6 text-[#d2c4a7]/75">Deslize para atravessar seis capítulos de trabalho. Cada um começa com um alvo claro.</p>
+        </header>
+        {PROJECTS.map((project) => (
+          <article key={project.number} className="relative flex h-[min(72svh,680px)] w-[min(76vw,760px)] shrink-0 flex-col overflow-hidden rounded-[2px] bg-[#d4c091] p-5 text-[#21180d] shadow-2xl shadow-black/30 md:p-8">
+            <div className="relative min-h-0 flex-1 overflow-hidden border border-[#4c391f]/35">
+              <Image src={project.image} alt="" fill sizes="(max-width: 768px) 76vw, 760px" className="object-cover sepia-[.35] saturate-[.65]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_50%,rgba(33,24,13,.55))]" />
+            </div>
+            <div className="mt-5 grid grid-cols-[auto_1fr] gap-x-5 border-t border-[#4c391f]/35 pt-5">
+              <p className="font-display text-3xl text-[#8c6935]">{project.number}</p>
+              <div>
+                <p className="font-data text-[10px] tracking-[.28em] text-[#5f4827]">{project.segment}</p>
+                <h3 className="font-display mt-1 text-2xl leading-tight">{project.name}</h3>
+                <p className="mt-2 max-w-md text-sm leading-5 text-[#48371f]">{project.result}</p>
+              </div>
+            </div>
+            <span className="absolute top-5 right-5 inline-flex size-9 items-center justify-center rounded-full border border-[#4c391f]/35 bg-[#d4c091]/80"><ArrowUpRight className="size-4" /></span>
+          </article>
+        ))}
+        <div className="w-[12vw] shrink-0" aria-hidden />
         </div>
-      </div>
     </section>
   );
 }

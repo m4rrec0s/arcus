@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import ParallaxHero from "@/components/ParallaxHero";
 import Marquee from "@/components/Marquee";
 import Manifesto from "@/components/Manifesto";
 import Services from "@/components/Services";
@@ -12,6 +13,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="flex flex-1 flex-col bg-[#0A0A0C]">
+      <ParallaxHero />
       <Hero />
       <Marquee />
       <Manifesto />

@@ -31,9 +31,17 @@ export default function Process() {
         scrollTrigger: { trigger: "[data-track]", start: "top 70%", end: "bottom 55%", scrub: true },
       });
       gsap.utils.toArray<HTMLElement>("[data-step]").forEach((el, i) => {
-        gsap.fromTo(el, { opacity: 0.7 }, {
+        gsap.fromTo(el, { opacity: 0.22, x: 44, scale: 0.96 }, {
           opacity: 1,
-          scrollTrigger: { trigger: el, start: "top 80%", end: "top 50%", scrub: true },
+          x: 0,
+          scale: 1,
+          ease: "power2.out",
+          scrollTrigger: { trigger: el, start: "top 82%", end: "top 48%", scrub: 0.55 },
+        });
+        gsap.to(el.querySelector("[data-step-index]"), {
+          rotation: 360,
+          ease: "none",
+          scrollTrigger: { trigger: el, start: "top 80%", end: "top 48%", scrub: true },
         });
         void i;
       });
@@ -63,7 +71,10 @@ export default function Process() {
             </div>
             {STEPS.map((s, i) => (
               <li key={s.title} data-step className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
-                <p className="text-xs tracking-[0.3em] text-[#C9B896]">ETAPA 0{i + 1}</p>
+                <div className="flex items-center gap-3">
+                  <span data-step-index className="font-data grid size-7 place-items-center rounded-full border border-[#C9B896]/50 text-[10px] text-[#C9B896]">0{i + 1}</span>
+                  <p className="text-xs tracking-[0.3em] text-[#C9B896]">ETAPA</p>
+                </div>
                 <h3 className="font-display mt-2 text-2xl text-zinc-50">{s.title}</h3>
                 <p className="mt-2 max-w-xl text-sm leading-6 text-zinc-400">{s.desc}</p>
               </li>

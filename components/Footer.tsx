@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="relative overflow-hidden border-t border-white/10 bg-[#0A0A0C] pt-12 pb-5" aria-label="Rodapé">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-3">
-          <Image src="/arcus-logo.svg" alt="ARCUS Tecnologia" width={36} height={36} className="invert" />
+          <Image src="/arcus-logo.svg" alt="ARCUS Tecnologia" width={45} height={36} className="invert h-9 w-auto" />
           <div>
             <p className="text-sm font-semibold tracking-[0.2em] text-zinc-100">ARCUS TECNOLOGIA</p>
             <p className="text-xs text-zinc-400">Precisão em cada linha de código · Campina Grande/PB — Brasil</p>

@@ -10,8 +10,8 @@ type IntroState = {
 };
 
 export const useIntroStore = create<IntroState>((set) => ({
-  progress: 0,
-  stage: "loading",
+  progress: 1,
+  stage: "revealed",
   setProgress: (p) =>
     set({ progress: Math.min(1, Math.max(0, Math.round(p * 100) / 100)) }),
   setStage: (stage) => set({ stage }),
