@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { MessageCircle, Send } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
@@ -21,6 +22,17 @@ export default function Contact() {
 
   return (
     <section id="contato" className="relative overflow-hidden bg-black py-28 md:py-40" aria-labelledby="contato-title">
+      <div aria-hidden className="absolute inset-0">
+        <Image
+          src="/parallax/cta-arrow.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-[78%_center] opacity-30"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/60 to-black" />
+      </div>
       <div className="grain absolute inset-0" aria-hidden />
       <div className="relative mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2">
         <Reveal>
@@ -39,13 +51,13 @@ export default function Contact() {
         <Reveal delay={0.1}>
           <form onSubmit={onSubmit} className="rounded-2xl border border-white/10 bg-white/[0.03] p-7 backdrop-blur" aria-label="Formulário de contato">
             <label className="block text-xs tracking-widest text-zinc-400 uppercase" htmlFor="nome">Nome
-              <input id="nome" name="nome" required autoComplete="name" className="mt-2 w-full rounded-lg border border-white/10 bg-black/40 px-4 py-3 text-sm text-zinc-100 outline-none placeholder:text-zinc-500 focus:border-[#C9B896]/60" placeholder="Seu nome" />
+              <input id="nome" name="nome" required autoComplete="name" suppressHydrationWarning className="mt-2 w-full rounded-lg border border-white/10 bg-black/40 px-4 py-3 text-sm text-zinc-100 outline-none placeholder:text-zinc-500 focus:border-[#C9B896]/60" placeholder="Seu nome" />
             </label>
             <label className="mt-4 block text-xs tracking-widest text-zinc-400 uppercase" htmlFor="email">E-mail
-              <input id="email" name="email" type="email" required autoComplete="email" className="mt-2 w-full rounded-lg border border-white/10 bg-black/40 px-4 py-3 text-sm text-zinc-100 outline-none placeholder:text-zinc-500 focus:border-[#C9B896]/60" placeholder="voce@empresa.com" />
+              <input id="email" name="email" type="email" required autoComplete="email" suppressHydrationWarning className="mt-2 w-full rounded-lg border border-white/10 bg-black/40 px-4 py-3 text-sm text-zinc-100 outline-none placeholder:text-zinc-500 focus:border-[#C9B896]/60" placeholder="voce@empresa.com" />
             </label>
             <label className="mt-4 block text-xs tracking-widest text-zinc-400 uppercase" htmlFor="mensagem">Alvo
-              <textarea id="mensagem" name="mensagem" required rows={4} className="mt-2 w-full resize-none rounded-lg border border-white/10 bg-black/40 px-4 py-3 text-sm text-zinc-100 outline-none placeholder:text-zinc-500 focus:border-[#C9B896]/60" placeholder="Ex: preciso de um site + IA no WhatsApp para qualificar leads…" />
+              <textarea id="mensagem" name="mensagem" required rows={4} suppressHydrationWarning className="mt-2 w-full resize-none rounded-lg border border-white/10 bg-black/40 px-4 py-3 text-sm text-zinc-100 outline-none placeholder:text-zinc-500 focus:border-[#C9B896]/60" placeholder="Ex: preciso de um site + IA no WhatsApp para qualificar leads…" />
             </label>
             <button type="submit" className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-zinc-100 px-6 py-3 text-sm font-semibold text-black transition hover:bg-white">
               <Send className="size-4" /> {sent ? "Aberto no WhatsApp — até já!" : "Enviar e abrir WhatsApp"}

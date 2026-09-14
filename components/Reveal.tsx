@@ -1,8 +1,13 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 
+/**
+ * Entrada suave ao rolar. Sem branch de render (SSR e cliente idênticos):
+ * o respeito a `prefers-reduced-motion` vem do <MotionConfig reducedMotion="user">
+ * no SmoothScroll — nunca de `if` aqui, que quebra hidratação.
+ */
 export function Reveal({
   children,
   delay = 0,
@@ -14,8 +19,6 @@ export function Reveal({
   y?: number;
   className?: string;
 }) {
-  const reduce = useReducedMotion();
-  if (reduce) return <div className={className}>{children}</div>;
   return (
     <motion.div
       className={className}

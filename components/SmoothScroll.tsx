@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MotionConfig } from "framer-motion";
 import { useIntroStore } from "@/lib/store";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -13,9 +14,8 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced) return;
 
-    // Suave e rápido: lerp alto = resposta imediata e cauda curta.
-    // Roda com leve multiplicador pra não parecer lenta. Nada anda sozinho.
-    const lenis = new Lenis({ lerp: 0.25, smoothWheel: true, wheelMultiplier: 1.15 });
+    // Inércia curta deixa roda/trackpad contínuos sem perder precisão de input.
+    const lenis = new Lenis({ lerp: 0.075, smoothWheel: true, wheelMultiplier: 0.8 });
     lenis.on("scroll", ScrollTrigger.update);
     // GSAP ticker roda em SEGUNDOS, Lenis espera MILISSEGUINDOS.
     // Sem o *1000 a animação anda 1000x devagar (deriva sem fim / trava).
@@ -51,5 +51,6 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     };
   }, []);
 
-  return <>{children}</>;
+  // reducedMotion="user": desliga movimento p/ quem prefere, sem ramificar render (SSR-safe).
+  return <MotionConfig reducedMotion="user">{children}</MotionConfig>;
 }
