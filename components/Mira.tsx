@@ -8,8 +8,7 @@ import { Reveal } from "@/components/Reveal";
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * 06 — MIRA: foto do arqueiro com parallax dirigido pelo scroll.
- * Parágrafo associado: assertividade.
+ * 06 — DIFERENCIAL: vídeo do arqueiro com parallax dirigido pelo scroll.
  */
 export default function Mira() {
   const flightRef = useRef<HTMLDivElement>(null);
@@ -41,21 +40,17 @@ export default function Mira() {
   }, []);
 
   return (
-    <section id="mira" className="relative overflow-hidden bg-[#0A0A0C] py-28 md:py-36" aria-labelledby="mira-title">
+    <section id="diferencial" className="relative overflow-hidden bg-[#0A0A0C] py-28 md:py-36" aria-labelledby="mira-title">
       <div className="mx-auto max-w-6xl px-6">
-        <p className="font-data mb-4 text-[11px] tracking-[0.4em] text-[#C9B896]">06 — MIRA</p>
+        <p className="font-data mb-4 text-[11px] tracking-[0.4em] text-[#C9B896]">06 — DIFERENCIAL</p>
         <h2 id="mira-title" className="font-display max-w-2xl text-3xl text-zinc-50 md:text-5xl">
-          O arco encontra <span className="text-[#C9B896]">a mão.</span>
+          Um problema por vez, <span className="text-[#C9B896]">resolvido de verdade.</span>
         </h2>
 
         <div className="mt-12 max-w-2xl">
           <Reveal>
-            <p className="font-data text-xs tracking-[0.3em] text-zinc-500">O ARQUEIRO</p>
             <p className="mt-4 text-base leading-7 text-zinc-400 md:text-lg">
-              Ferramenta sem mão é enfeite. O arco da ARCUS só existe armado:
-              diagnóstico na corda, arquitetura na mira, código em voo.
-              O espartano não atira duas vezes no mesmo alvo —
-              <span className="text-zinc-100"> nem a gente.</span>
+              A maioria dos projetos de software falha por escopo inchado, não por falta de tecnologia. Por isso cada projeto ARCUS começa com um objetivo escrito e mensurável — e termina quando esse objetivo é entregue, não quando o orçamento acaba.
             </p>
           </Reveal>
         </div>
@@ -79,12 +74,6 @@ export default function Mira() {
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C]/60 via-transparent to-transparent" />
           <div className="grain absolute inset-0" aria-hidden />
-          <p className="font-data pointer-events-none absolute top-4 left-5 text-[11px] tracking-[0.35em] text-zinc-500">
-            MIRA · SCROLL DIRIGE
-          </p>
-          <p className="font-data pointer-events-none absolute top-4 right-5 text-[11px] tracking-[0.35em] text-[#C9B896]">
-            ARCO →
-          </p>
         </div>
       </div>
 
@@ -92,17 +81,16 @@ export default function Mira() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="mt-10 grid gap-8 md:grid-cols-[1fr_1.4fr] md:items-end">
           <Reveal>
-            <h3 className="font-display text-3xl text-zinc-50 md:text-4xl">Assertividade.</h3>
-            <p className="font-data mt-4 flex flex-wrap gap-x-6 gap-y-2 text-[11px] tracking-[0.25em] text-[#C9B896]">
-              <span>1 FLECHA</span><span>1 ALVO</span><span>0 DESPERDÍCIO</span>
-            </p>
+            <h3 className="font-display text-3xl text-zinc-50 md:text-4xl">Como isso aparece no seu projeto</h3>
+            <ul className="font-data mt-4 space-y-3 text-[11px] leading-5 tracking-[0.12em] text-[#C9B896]">
+              <li>Escopo fechado antes de começar — sem &quot;enquanto isso, dá pra...&quot;</li>
+              <li>Prazo combinado e cumprido, com atualizações no caminho</li>
+              <li>Métrica de sucesso definida junto com você, não depois</li>
+            </ul>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="max-w-xl text-sm leading-7 text-zinc-400 md:text-base">
-              Assertividade é economia de movimento: mirar uma vez, acertar uma vez.
-              Cada projeto ARCUS carrega alvo definido, métrica de acerto e prazo —
-              sem features órfãs, sem sprint perdida, sem chute. O que entra no arco,
-              sai cravado onde dói: receita, tempo, operação.
+              Isso significa menos reunião de alinhamento, menos retrabalho e um sistema que resolve o que precisava resolver — nem mais, nem menos.
             </p>
           </Reveal>
         </div>

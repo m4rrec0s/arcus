@@ -38,11 +38,10 @@ export default function Contact() {
         <Reveal>
           <p className="font-data mb-4 text-[11px] tracking-[0.4em] text-[#C9B896]">07 — CONTATO</p>
           <h2 id="contato-title" className="font-display text-4xl leading-tight text-zinc-50 md:text-6xl">
-            Vamos mirar no seu <span className="text-[#C9B896]">próximo projeto?</span>
+            Vamos falar sobre o seu <span className="text-[#C9B896]">projeto?</span>
           </h2>
           <p className="mt-5 max-w-md text-sm leading-6 text-zinc-400 md:text-base">
-            Resposta rápida no WhatsApp. Conte o alvo — devolvemos diagnóstico,
-            arquitetura e prazo, sem enrolação de agência.
+            Resposta rápida no WhatsApp. Conte o que você precisa e devolvemos diagnóstico, proposta de arquitetura e prazo — sem enrolação.
           </p>
           <a href={WHATSAPP} target="_blank" rel="noopener" className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#1FA855] px-6 py-3 text-sm font-semibold text-white transition hover:brightness-110">
             <MessageCircle className="size-4" /> Chamar no WhatsApp
@@ -56,13 +55,13 @@ export default function Contact() {
             <label className="mt-4 block text-xs tracking-widest text-zinc-400 uppercase" htmlFor="email">E-mail
               <input id="email" name="email" type="email" required autoComplete="email" suppressHydrationWarning className="mt-2 w-full rounded-lg border border-white/10 bg-black/40 px-4 py-3 text-sm text-zinc-100 outline-none placeholder:text-zinc-500 focus:border-[#C9B896]/60" placeholder="voce@empresa.com" />
             </label>
-            <label className="mt-4 block text-xs tracking-widest text-zinc-400 uppercase" htmlFor="mensagem">Alvo
+            <label className="mt-4 block text-xs tracking-widest text-zinc-400 uppercase" htmlFor="mensagem">O que você precisa
               <textarea id="mensagem" name="mensagem" required rows={4} suppressHydrationWarning className="mt-2 w-full resize-none rounded-lg border border-white/10 bg-black/40 px-4 py-3 text-sm text-zinc-100 outline-none placeholder:text-zinc-500 focus:border-[#C9B896]/60" placeholder="Ex: preciso de um site + IA no WhatsApp para qualificar leads…" />
             </label>
             <button type="submit" className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-zinc-100 px-6 py-3 text-sm font-semibold text-black transition hover:bg-white">
-              <Send className="size-4" /> {sent ? "Aberto no WhatsApp — até já!" : "Enviar e abrir WhatsApp"}
+              <Send className="size-4" /> {sent ? "Mensagem enviada — te esperamos no WhatsApp!" : "Enviar e abrir WhatsApp"}
             </button>
-            <p className="mt-3 text-center text-xs text-zinc-400">Sem spam. Só diagnóstico.</p>
+            <p className="mt-3 text-center text-xs text-zinc-400">Sem spam. Só retorno sobre o seu projeto.</p>
           </form>
         </Reveal>
       </div>

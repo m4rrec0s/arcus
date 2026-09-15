@@ -1,6 +1,6 @@
 "use client";
 
-const ITEMS = ["SITES", "APPS", "AUTOMAÇÕES", "IA NO WHATSAPP", "N8N", "INTEGRAÇÕES"];
+const ITEMS = ["SITES", "APLICAÇÕES", "AUTOMAÇÕES", "IA NO WHATSAPP", "N8N", "INTEGRAÇÕES"];
 
 export default function Marquee() {
   const row = (hidden: boolean) => (

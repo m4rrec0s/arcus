@@ -8,10 +8,10 @@ import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 const STEPS = [
-  { title: "Diagnóstico", desc: "Entendemos meta, restrições e o que define acerto — sem jargão vazio." },
-  { title: "Arquitetura", desc: "Desenho técnico, stack e cronograma. O arco é armado aqui." },
-  { title: "Desenvolvimento", desc: "Sprints curtos, preview contínuo, qualidade medida em cada merge." },
-  { title: "Entrega & suporte", desc: "Deploy observável, handover documentado e evolução contínua." },
+  { title: "Diagnóstico", desc: "Entendemos sua meta, seu prazo e o que conta como sucesso — em conversa direta, sem questionário genérico." },
+  { title: "Arquitetura", desc: "Definimos stack, estrutura técnica e cronograma antes de escrever a primeira linha de código." },
+  { title: "Desenvolvimento", desc: "Entregas em ciclos curtos, com acesso a uma versão de teste desde a primeira semana — você acompanha o progresso, não espera às cegas." },
+  { title: "Entrega & suporte", desc: "Deploy monitorado, documentação de handover e um período de suporte incluído para ajustes pós-lançamento." },
 ];
 
 export default function Process() {
@@ -31,8 +31,7 @@ export default function Process() {
         scrollTrigger: { trigger: "[data-track]", start: "top 70%", end: "bottom 55%", scrub: true },
       });
       gsap.utils.toArray<HTMLElement>("[data-step]").forEach((el, i) => {
-        gsap.fromTo(el, { opacity: 0.22, x: 44, scale: 0.96 }, {
-          opacity: 1,
+        gsap.fromTo(el, { x: 44, scale: 0.96 }, {
           x: 0,
           scale: 1,
           ease: "power2.out",
@@ -50,10 +49,10 @@ export default function Process() {
   }, []);
 
   return (
-    <section ref={ref} id="processo" className="bg-[#0A0A0C] py-28 md:py-36" aria-labelledby="processo-title">
+    <section ref={ref} id="processo" className="overflow-hidden bg-[#0A0A0C] py-24 md:py-36" aria-labelledby="processo-title">
       <div className="mx-auto max-w-6xl px-6">
-        <p className="font-data mb-4 text-[11px] tracking-[0.4em] text-[#C9B896]">03 — TRAJETÓRIA</p>
-        <h2 id="processo-title" className="font-display max-w-2xl text-3xl text-zinc-50 md:text-5xl">A trajetória da flecha, do diagnóstico ao impacto.</h2>
+        <p className="font-data mb-4 text-[11px] tracking-[0.4em] text-[#C9B896]">03 — COMO TRABALHAMOS</p>
+        <h2 id="processo-title" className="font-display max-w-2xl text-3xl text-zinc-50 md:text-5xl">Do diagnóstico à entrega, sem etapa escondida.</h2>
 
         <div data-track className="relative mt-14 grid gap-10 md:grid-cols-[120px_1fr]">
           {/* curved SVG trajectory */}

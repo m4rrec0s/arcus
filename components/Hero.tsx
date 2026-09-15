@@ -45,23 +45,22 @@ export default function Hero() {
       <div className="grain absolute inset-0" aria-hidden />
 
       <div data-hero-parallax className="relative z-20 mx-auto flex min-h-[100svh] w-full max-w-6xl flex-col items-start justify-end px-6 pt-28 pb-20 text-left md:justify-center md:pb-16">
-        <p data-hero-in className="font-data mb-6 text-[11px] tracking-[0.4em] text-[#C9B896]">ARCO · PRECISÃO · IMPACTO</p>
+        <p data-hero-in className="font-data mb-6 text-[11px] tracking-[0.4em] text-[#C9B896]">ARCUS TECNOLOGIA</p>
         <h1 data-hero-in className="mt-2 max-w-3xl font-display text-5xl leading-[.94] text-zinc-50 md:text-7xl">
-          Tensão, precisão <span className="text-[#C9B896]">e impacto</span> em cada entrega.
+          Software com alvo definido, <span className="text-[#C9B896]">prazo real</span> e resultado medido.
         </h1>
         <p data-hero-in className="mt-5 max-w-xl text-base leading-7 text-zinc-400 md:text-lg">
-          Sites, apps, automações e atendimento com IA — engenharia de software
-          de alto padrão, não agência genérica.
+          Sites, aplicações web e automações com IA para empresas que precisam de engenharia de verdade — não de mais uma agência prometendo &quot;presença digital&quot;.
         </p>
         <div data-hero-in className="mt-8 flex flex-wrap items-center gap-3">
           <a href="#contato" className="rounded-full bg-zinc-100 px-6 py-3 text-sm font-semibold text-black transition hover:bg-white">
-            Mirar meu projeto
+            Falar sobre meu projeto
           </a>
           <a href="#processo" className="rounded-full border border-white/15 px-6 py-3 text-sm text-zinc-200 transition hover:border-white/40">
-            Ver trajetória
+            Ver como trabalhamos
           </a>
         </div>
-        <a data-hero-in href="#manifesto" className="font-data mt-12 inline-flex items-center gap-2 text-[11px] tracking-[0.3em] text-zinc-400 transition hover:text-zinc-200" aria-label="Rolar para manifesto">
+        <a data-hero-in href="#manifesto" className="font-data mt-12 inline-flex min-h-11 items-center gap-2 text-[11px] tracking-[0.3em] text-zinc-400 transition hover:text-zinc-200" aria-label="Rolar para manifesto">
           SCROLL <ArrowDown className="size-4 animate-bounce" />
         </a>
       </div>

@@ -163,8 +163,9 @@ export default function ParallaxHero() {
       tl.to("[data-pl='media']", { yPercent: -4, ease: "none", duration: 1 }, 0);
       tl.to("[data-pl='arch']", { xPercent: -34, yPercent: 8, ease: "none", duration: 1 }, 0);
       tl.fromTo("[data-pl='smoke-a']", { opacity: 0, xPercent: -12 }, { opacity: 0.5, xPercent: 26, ease: "none", duration: 1 }, 0);
-      tl.fromTo("[data-pl='smoke-b']", { opacity: 0, yPercent: 14 }, { opacity: 0.32, yPercent: -18, ease: "none", duration: 1 }, 0.12);
-      tl.to("[data-pl='backdrop']", { opacity: 0, ease: "none", duration: 0.8 }, 0.1);
+       tl.fromTo("[data-pl='smoke-b']", { opacity: 0, yPercent: 14 }, { opacity: 0.32, yPercent: -18, ease: "none", duration: 1 }, 0.12);
+       tl.to("[data-pl='backdrop']", { opacity: 0, ease: "none", duration: 0.8 }, 0.1);
+       tl.to("[data-pl='manifesto-backdrop']", { opacity: 1, ease: "none", duration: 0.35 }, 0.65);
       // Camada fixa sai de cena quando Serviços encosta no topo (já cobriu o
       // Manifesto com fundo opaco). Sem fade no arco: cobertura é geométrica.
       const services = document.getElementById("servicos");
@@ -184,9 +185,14 @@ export default function ParallaxHero() {
     <div ref={ref} className="pointer-events-none fixed inset-0 z-10 overflow-hidden" aria-hidden data-parallax-hero>
       <div data-pl="backdrop" className="absolute inset-0 bg-[#0A0A0C]" />
       <div data-pl="backdrop" className="absolute -right-[20%] top-[-20%] size-[80vw] rounded-full bg-[radial-gradient(circle,rgba(201,184,150,.18),transparent_65%)] opacity-50" />
-      <div data-pl="smoke-a" className="absolute -left-[22vw] bottom-[-30vh] size-[85vw] rounded-full bg-[radial-gradient(circle,rgba(151,89,42,.28),transparent_42%,transparent_72%)] blur-[90px] mix-blend-screen" />
-      <div data-pl="smoke-b" className="absolute right-[-24vw] top-[24vh] size-[64vw] rounded-full bg-[radial-gradient(circle,rgba(207,157,94,.15),transparent_48%,transparent_72%)] blur-[110px] mix-blend-screen" />
-      <div data-pl="arch" className="absolute inset-0 [transform-style:preserve-3d]">
+       <div data-pl="smoke-a" className="absolute -left-[22vw] bottom-[-30vh] size-[85vw] rounded-full bg-[radial-gradient(circle,rgba(151,89,42,.28),transparent_42%,transparent_72%)] blur-[90px] mix-blend-screen" />
+       <div data-pl="smoke-b" className="absolute right-[-24vw] top-[24vh] size-[64vw] rounded-full bg-[radial-gradient(circle,rgba(207,157,94,.15),transparent_48%,transparent_72%)] blur-[110px] mix-blend-screen" />
+       <div data-pl="manifesto-backdrop" className="absolute inset-0 z-0 bg-[#0A0A0C] opacity-0 motion-reduce:opacity-100">
+         <div className="absolute inset-0 bg-[url('/parallax/texture-marble.webp')] bg-cover bg-center opacity-[0.16]" />
+         <div className="absolute -inset-[30%] bg-[radial-gradient(circle_at_58%_42%,rgba(201,184,150,.2),transparent_28%),radial-gradient(circle_at_25%_72%,rgba(80,101,190,.18),transparent_30%)]" />
+         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C] via-transparent to-[#0A0A0C]" />
+       </div>
+       <div data-pl="arch" className="absolute inset-0 z-10 [transform-style:preserve-3d]">
         <div data-pl="media" className="absolute inset-0 will-change-transform">
           <BowCanvas transform={INITIAL_TRANSFORM} endTransform={MANIFESTO_TRANSFORM} />
         </div>
