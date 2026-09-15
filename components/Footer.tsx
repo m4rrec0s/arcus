@@ -8,15 +8,15 @@ export default function Footer() {
           <Image src="/arcus-logo.svg" alt="ARCUS Tecnologia" width={45} height={36} className="invert h-9 w-auto" />
           <div>
             <p className="text-sm font-semibold tracking-[0.2em] text-zinc-100">ARCUS TECNOLOGIA</p>
-            <p className="text-xs text-zinc-400">Precisão em cada linha de código · Campina Grande/PB — Brasil</p>
+            <p className="text-xs text-zinc-400">Engenharia de software com prazo e resultado · Campina Grande/PB — Brasil</p>
           </div>
         </div>
-        <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-zinc-400" aria-label="Links">
-          <a className="hover:text-zinc-100" href="#manifesto">Manifesto</a>
-          <a className="hover:text-zinc-100" href="#servicos">Serviços</a>
-          <a className="hover:text-zinc-100" href="#processo">Processo</a>
-          <a className="hover:text-zinc-100" href="#cases">Cases</a>
-          <a className="hover:text-zinc-100" href="#contato">Contato</a>
+        <nav className="flex flex-wrap gap-x-5 gap-y-1 text-sm text-zinc-400" aria-label="Links">
+          <a className="inline-flex min-h-11 items-center hover:text-zinc-100" href="#manifesto">Manifesto</a>
+          <a className="inline-flex min-h-11 items-center hover:text-zinc-100" href="#servicos">Serviços</a>
+          <a className="inline-flex min-h-11 items-center hover:text-zinc-100" href="#processo">Como trabalhamos</a>
+          <a className="inline-flex min-h-11 items-center hover:text-zinc-100" href="#cases">Cases</a>
+          <a className="inline-flex min-h-11 items-center hover:text-zinc-100" href="#contato">Contato</a>
         </nav>
         <p className="text-xs text-zinc-400">© {new Date().getFullYear()} ARCUS Tecnologia. Todos os direitos reservados.</p>
       </div>
