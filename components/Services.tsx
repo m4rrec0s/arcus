@@ -21,18 +21,22 @@ export default function Services() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const ctx = gsap.context(() => {
-      gsap.to("[data-services-title]", {
+      const select = gsap.utils.selector(ref);
+      const title = select("[data-services-title]")[0];
+      const rows = select("[data-service]");
+
+      if (title) gsap.to(title, {
         yPercent: -24,
         ease: "none",
-        scrollTrigger: { trigger: ref.current, start: "top bottom", end: "bottom top", scrub: true },
+        scrollTrigger: { trigger: ref.current, start: "top bottom", end: "bottom top", scrub: true, invalidateOnRefresh: true },
       });
-      gsap.utils.toArray<HTMLElement>("[data-service]").forEach((row) => {
+      rows.forEach((row) => {
         gsap.fromTo(row, { opacity: 0, x: 72, clipPath: "inset(0 0 100% 0)" }, {
           opacity: 1,
           x: 0,
           clipPath: "inset(0 0 0% 0)",
           ease: "power3.out",
-          scrollTrigger: { trigger: row, start: "top 88%", end: "top 56%", scrub: 0.45 },
+          scrollTrigger: { trigger: row, start: "top 88%", end: "top 56%", scrub: 0.45, invalidateOnRefresh: true },
         });
       });
     }, ref);

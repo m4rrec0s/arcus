@@ -49,7 +49,7 @@ export default function Process() {
   }, []);
 
   return (
-    <section ref={ref} id="processo" className="overflow-hidden bg-[#0A0A0C] py-24 md:py-36" aria-labelledby="processo-title">
+    <section ref={ref} id="processo" className="chapter overflow-hidden py-24 md:py-36" aria-labelledby="processo-title">
       <div className="mx-auto max-w-6xl px-6">
         <p className="font-data mb-4 text-[11px] tracking-[0.4em] text-[#C9B896]">03 — COMO TRABALHAMOS</p>
         <h2 id="processo-title" className="font-display max-w-2xl text-3xl text-zinc-50 md:text-5xl">Do diagnóstico à entrega, sem etapa escondida.</h2>
@@ -69,7 +69,7 @@ export default function Process() {
               <div data-process-fill className="h-full w-full origin-top scale-y-0 bg-[#C9B896]" />
             </div>
             {STEPS.map((s, i) => (
-              <li key={s.title} data-step className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
+              <li key={s.title} data-step className="border-l border-white/10 bg-gradient-to-r from-white/[0.045] to-transparent p-6 md:p-8">
                 <div className="flex items-center gap-3">
                   <span data-step-index className="font-data grid size-7 place-items-center rounded-full border border-[#C9B896]/50 text-[10px] text-[#C9B896]">0{i + 1}</span>
                   <p className="text-xs tracking-[0.3em] text-[#C9B896]">ETAPA</p>
