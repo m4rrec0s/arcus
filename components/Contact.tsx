@@ -21,7 +21,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contato" className="relative overflow-hidden bg-black py-28 md:py-40" aria-labelledby="contato-title">
+    <section id="contato" className="chapter-ember relative overflow-hidden py-28 md:py-40" aria-labelledby="contato-title">
       <div aria-hidden className="absolute inset-0">
         <Image
           src="/parallax/cta-arrow.webp"

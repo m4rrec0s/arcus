@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import Header from "@/components/Header";
 
 const display = Fraunces({
   variable: "--font-display",
@@ -64,6 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#conteudo" className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:bg-white focus:p-2 focus:text-black">
           Pular para o conteúdo
         </a>
+        <Header />
         <SmoothScroll>
           <div id="conteudo">{children}</div>
         </SmoothScroll>

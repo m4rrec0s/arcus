@@ -40,7 +40,7 @@ export default function Mira() {
   }, []);
 
   return (
-    <section id="diferencial" className="relative overflow-hidden bg-[#0A0A0C] py-28 md:py-36" aria-labelledby="mira-title">
+    <section id="diferencial" className="chapter relative overflow-hidden py-28 md:py-36" aria-labelledby="mira-title">
       <div className="mx-auto max-w-6xl px-6">
         <p className="font-data mb-4 text-[11px] tracking-[0.4em] text-[#C9B896]">06 — DIFERENCIAL</p>
         <h2 id="mira-title" className="font-display max-w-2xl text-3xl text-zinc-50 md:text-5xl">
@@ -58,7 +58,7 @@ export default function Mira() {
 
       {/* faixa do arqueiro: foto com parallax dirigido pelo scroll */}
       <div className="mx-auto mt-6 max-w-6xl px-6">
-        <div ref={flightRef} id="mira-flight" className="relative h-[62vh] min-h-[420px] overflow-hidden rounded-2xl border border-white/10 bg-black/40">
+        <div ref={flightRef} id="mira-flight" className="chapter-frame relative h-[62vh] min-h-[420px] overflow-hidden border-y border-white/10 bg-black/40">
           <div data-mira-media className="absolute -inset-[8%] overflow-hidden will-change-transform">
             <video
               ref={videoRef}

@@ -82,7 +82,7 @@ export default function Cases() {
   }, []);
 
   return (
-    <section ref={ref} id="cases" className="relative z-10 overflow-hidden bg-[#17120b] py-20 md:h-svh md:py-0" aria-labelledby="cases-title">
+    <section ref={ref} id="cases" className="chapter-ember relative z-10 overflow-hidden py-20 md:h-svh md:py-0" aria-labelledby="cases-title">
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(23,18,11,.2),rgba(23,18,11,.8))]" />
       <div ref={trackRef} className="relative flex w-full flex-col gap-7 px-6 md:h-full md:w-max md:flex-row md:items-center md:gap-12 md:px-[12vw]">
         <header className="w-full text-[#f2e7cb] md:w-[min(78vw,600px)] md:shrink-0">
@@ -91,7 +91,7 @@ export default function Cases() {
           <p className="mt-7 max-w-sm text-sm leading-6 text-[#d2c4a7]/75">Deslize para atravessar seis capítulos de trabalho. Cada um começa com um alvo claro.</p>
         </header>
         {PROJECTS.map((project) => (
-          <article key={project.number} className="relative flex w-full flex-col overflow-hidden rounded-[2px] bg-[#d4c091] p-5 text-[#21180d] shadow-2xl shadow-black/30 md:h-[min(72svh,680px)] md:w-[min(76vw,760px)] md:shrink-0 md:p-8">
+          <article key={project.number} className="relative flex w-full flex-col overflow-hidden bg-[#d4c091] p-5 text-[#21180d] shadow-2xl shadow-black/30 md:h-[min(72svh,680px)] md:w-[min(76vw,760px)] md:shrink-0 md:p-8">
             <div className="relative h-52 shrink-0 overflow-hidden border border-[#4c391f]/35 md:h-auto md:min-h-0 md:flex-1">
               <Image src={project.image} alt="" fill sizes="(max-width: 768px) 76vw, 760px" className="object-cover sepia-[.35] saturate-[.65]" />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_50%,rgba(33,24,13,.55))]" />

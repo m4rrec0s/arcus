@@ -11,6 +11,7 @@
 :root {
   --background: #0a0a0c;
   --foreground: #ededed;
+  --arcus-bronze: #c9b896;
 }
 
 html {
@@ -23,9 +24,29 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at 82% 7%, rgba(201, 184, 150, 0.09), transparent 22rem),
+    radial-gradient(circle at 8% 46%, rgba(92, 72, 136, 0.1), transparent 30rem),
+    var(--background);
   color: var(--foreground);
   overflow-x: clip;
+}
+
+section[id], header[id] { scroll-margin-top: 5rem; }
+
+.chapter {
+  position: relative;
+  background: linear-gradient(180deg, transparent, rgba(13, 13, 16, 0.78) 16%, rgba(10, 10, 12, 0.9) 84%, transparent);
+}
+
+.chapter-ember {
+  background:
+    radial-gradient(ellipse at 82% 42%, rgba(124, 78, 35, 0.2), transparent 42%),
+    linear-gradient(180deg, transparent, rgba(31, 23, 15, 0.84) 18%, rgba(10, 10, 12, 0.9) 88%, transparent);
+}
+
+.chapter-frame {
+  clip-path: polygon(0 3%, 100% 0, 100% 97%, 0 100%);
 }
 
 :focus-visible {
@@ -77,4 +98,6 @@ body {
   .animate-marquee {
     animation: none;
   }
+
+  .chapter-frame { clip-path: none; }
 }
