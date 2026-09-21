@@ -39,7 +39,7 @@ export default function Manifesto() {
             — Edsger W. Dijkstra, pioneiro da ciência da computação
           </p>
           <p className="mt-10 text-base leading-8 text-zinc-300 md:text-lg">
-            Todo sistema construido pela Arcus nasce de uma pergunta simples : o que de fato precisa existir no seu sistema? evitando funcionalidades inuteis que atrasam entrega e não gera retorno
+            Todo sistema construído pela Arcus nasce de uma pergunta simples: o que, de fato, precisa existir no seu sistema? Evitamos funcionalidades inúteis que atrasam a entrega e não geram retorno.
           </p>
         </div>
       </div>

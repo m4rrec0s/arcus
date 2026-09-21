@@ -8,7 +8,6 @@ const links = [
   ["Manifesto", "#manifesto"],
   ["Serviços", "#servicos"],
   ["Processo", "#processo"],
-  ["Cases", "#cases"],
 ] as const;
 
 export default function Header() {

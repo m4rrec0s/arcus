@@ -5,7 +5,7 @@ import Image from "next/image";
 import { MessageCircle, Send } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
-const WHATSAPP = "https://wa.me/5583999999999?text=Ol%C3%A1%2C%20quero%20mirar%20meu%20pr%C3%B3ximo%20projeto%20com%20a%20ARCUS.";
+const WHATSAPP = "https://wa.me/5583999435731?text=Ol%C3%A1%2C%20quero%20mirar%20meu%20pr%C3%B3ximo%20projeto%20com%20a%20ARCUS.";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -15,7 +15,8 @@ export default function Contact() {
     const data = new FormData(e.currentTarget);
     const nome = String(data.get("nome") || "");
     const msg = String(data.get("mensagem") || "");
-    const url = `https://wa.me/5583999999999?text=${encodeURIComponent(`Olá, sou ${nome}. ${msg}`)}`;
+    const email = String(data.get("email") || "");
+    const url = `https://wa.me/5583999435731?text=${encodeURIComponent(`Olá, sou ${nome}. ${msg} (${email})`)}`;
     window.open(url, "_blank", "noopener");
     setSent(true);
   };
@@ -36,12 +37,12 @@ export default function Contact() {
       <div className="grain absolute inset-0" aria-hidden />
       <div className="relative mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2">
         <Reveal>
-          <p className="font-data mb-4 text-[11px] tracking-[0.4em] text-[#C9B896]">07 — CONTATO</p>
+          <p className="font-data mb-4 text-[11px] tracking-[0.4em] text-[#C9B896]">05 — CONTATO</p>
           <h2 id="contato-title" className="font-display text-4xl leading-tight text-zinc-50 md:text-6xl">
             Vamos falar sobre o seu <span className="text-[#C9B896]">projeto?</span>
           </h2>
           <p className="mt-5 max-w-md text-sm leading-6 text-zinc-400 md:text-base">
-            Resposta rápida no WhatsApp. Conte o que você precisa e devolvemos diagnóstico, proposta de arquitetura e prazo — sem enrolação.
+            Resposta rápida no WhatsApp. Conte o que você precisa e devolvemos diagnóstico, proposta de arquitetura e prazo.
           </p>
           <a href={WHATSAPP} target="_blank" rel="noopener" className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#1FA855] px-6 py-3 text-sm font-semibold text-white transition hover:brightness-110">
             <MessageCircle className="size-4" /> Chamar no WhatsApp
@@ -56,12 +57,12 @@ export default function Contact() {
               <input id="email" name="email" type="email" required autoComplete="email" suppressHydrationWarning className="mt-2 w-full rounded-lg border border-white/10 bg-black/40 px-4 py-3 text-sm text-zinc-100 outline-none placeholder:text-zinc-500 focus:border-[#C9B896]/60" placeholder="voce@empresa.com" />
             </label>
             <label className="mt-4 block text-xs tracking-widest text-zinc-400 uppercase" htmlFor="mensagem">O que você precisa
-              <textarea id="mensagem" name="mensagem" required rows={4} suppressHydrationWarning className="mt-2 w-full resize-none rounded-lg border border-white/10 bg-black/40 px-4 py-3 text-sm text-zinc-100 outline-none placeholder:text-zinc-500 focus:border-[#C9B896]/60" placeholder="Ex: preciso de um site + IA no WhatsApp para qualificar leads…" />
+              <textarea id="mensagem" name="mensagem" required rows={4} suppressHydrationWarning className="mt-2 w-full resize-none rounded-lg border border-white/10 bg-black/40 px-4 py-3 text-sm text-zinc-100 outline-none placeholder:text-zinc-500 focus:border-[#C9B896]/60" placeholder="Ex: preciso de um site + IA no WhatsApp" />
             </label>
             <button type="submit" className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-zinc-100 px-6 py-3 text-sm font-semibold text-black transition hover:bg-white">
               <Send className="size-4" /> {sent ? "Mensagem enviada — te esperamos no WhatsApp!" : "Enviar e abrir WhatsApp"}
             </button>
-            <p className="mt-3 text-center text-xs text-zinc-400">Sem spam. Só retorno sobre o seu projeto.</p>
+           
           </form>
         </Reveal>
       </div>
