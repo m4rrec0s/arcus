@@ -39,7 +39,7 @@ export default function Manifesto() {
             — Edsger W. Dijkstra, pioneiro da ciência da computação
           </p>
           <p className="mt-10 text-base leading-8 text-zinc-300 md:text-lg">
-            Levamos essa frase a sério. Todo sistema que a ARCUS entrega nasce de uma pergunta simples: o que precisa existir para o negócio funcionar melhor? O resto é peso morto — e peso morto atrasa entrega, encarece manutenção e não gera retorno.
+            Todo sistema construido pela Arcus nasce de uma pergunta simples : o que de fato precisa existir no seu sistema? evitando funcionalidades inuteis que atrasam entrega e não gera retorno
           </p>
         </div>
       </div>

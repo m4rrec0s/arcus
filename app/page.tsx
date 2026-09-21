@@ -4,7 +4,6 @@ import Marquee from "@/components/Marquee";
 import Manifesto from "@/components/Manifesto";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
-import Cases from "@/components/Cases";
 import Mira from "@/components/Mira";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -18,7 +17,6 @@ export default function Home() {
       <Services />
       <Marquee />
       <Process />
-      <Cases />
       <Mira />
       <Contact />
       <Footer />

@@ -15,7 +15,6 @@ export default function Footer() {
           <a className="inline-flex min-h-11 items-center hover:text-zinc-100" href="#manifesto">Manifesto</a>
           <a className="inline-flex min-h-11 items-center hover:text-zinc-100" href="#servicos">Serviços</a>
           <a className="inline-flex min-h-11 items-center hover:text-zinc-100" href="#processo">Como trabalhamos</a>
-          <a className="inline-flex min-h-11 items-center hover:text-zinc-100" href="#cases">Cases</a>
           <a className="inline-flex min-h-11 items-center hover:text-zinc-100" href="#contato">Contato</a>
         </nav>
         <p className="text-xs text-zinc-400">© {new Date().getFullYear()} ARCUS Tecnologia. Todos os direitos reservados.</p>
