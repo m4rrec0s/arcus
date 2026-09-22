@@ -8,11 +8,11 @@ import { Globe, Smartphone, Workflow, Bot, Plug } from "lucide-react";
 gsap.registerPlugin(ScrollTrigger);
 
 const SERVICES = [
-  { icon: Globe, title: "Sites de alto padrão", desc: "Sites institucionais e landing pages que carregam rápido, aparecem no Google e convertem visita em contato — com copy pensada para o seu público, não um template genérico." },
-  { icon: Smartphone, title: "Aplicações & sistemas web", desc: "Painéis internos, portais de cliente e sistemas sob medida em Next.js/Node, integrados ao seu ERP ou planilha atual — sem trocar tudo que já funciona." },
-  { icon: Workflow, title: "Automações com n8n", desc: "Eliminamos tarefas manuais repetitivas: atualização de CRM, geração de relatórios, notificações e rotinas que hoje dependem de alguém copiar e colar." },
+  { icon: Globe, title: "Sites de alto padrão", desc: "Sites institucionais e landing pages que carregam rápido, aparecem no Google e convertem visita em contato — pensada para o seu público." },
+  { icon: Smartphone, title: "Aplicações & sistemas web", desc: "Aplicativos mobile, painéis internos, portais de cliente e sistemas sob medida, integrados ao seu ERP ou planilha atual." },
+  { icon: Workflow, title: "Automações com n8n", desc: "Eliminamos tarefas manuais repetitivas: atualização de CRM, geração de relatórios, notificações e rotinas que hoje dependem de alguém." },
   { icon: Bot, title: "Atendimento com IA no WhatsApp", desc: "Agentes de IA que qualificam leads, agendam horários e respondem dúvidas frequentes 24h — com transferência automática para um humano quando o caso exige." },
-  { icon: Plug, title: "Integrações & APIs", desc: "Conectamos meios de pagamento, mapas, controle de estoque e sistemas legados numa arquitetura documentada, sem gambiarra e sem ponto único de falha." },
+  { icon: Plug, title: "Integrações & APIs", desc: "Conectamos meios de pagamento, mapas, controle de estoque e sistemas legados em uma arquitetura moderna." },
 ];
 
 export default function Services() {
@@ -49,8 +49,8 @@ export default function Services() {
         <p className="font-data mb-4 text-[11px] tracking-[0.4em] text-[#C9B896]">02 — SERVIÇOS</p>
         <div className="grid gap-14 lg:grid-cols-[.78fr_1.22fr] lg:gap-24">
           <div data-services-title className="lg:sticky lg:top-28 lg:self-start">
-            <h2 id="servicos-title" className="font-display text-4xl leading-[.95] text-zinc-50 md:text-6xl">Cinco frentes.<br /><span className="text-[#C9B896]">Um objetivo:</span> resolver o seu problema.</h2>
-            <p className="mt-7 max-w-sm text-sm leading-6 text-zinc-400">Cada serviço abaixo existe para resolver uma dor operacional específica. A tecnologia certa é escolhida depois de entendermos o que você precisa que aconteça — não antes.</p>
+            <h2 id="servicos-title" className="font-display text-4xl leading-[.95] text-zinc-50 md:text-6xl">Cinco frentes.<br /><span className="text-[#C9B896]">Um objetivo:</span> resolver sua necessidade.</h2>
+    
           </div>
           <ol className="border-t border-white/10">
           {SERVICES.map((s) => (

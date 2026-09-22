@@ -68,14 +68,14 @@ export default function Hero() {
           className="mt-2 max-w-3xl font-display text-5xl leading-[.94] text-zinc-50 md:text-7xl"
         >
           Software com alvo definido,{" "}
-          <span className="text-[#C9B896]">prazo real</span> e resultado medido.
+          <span className="text-[#C9B896]">prazo </span> e resultado.
         </h1>
         <p
           data-hero-in
           className="mt-5 max-w-xl text-base leading-7 text-zinc-400 md:text-lg"
         >
-          Sites, aplicações web e automações com IA para empresas que precisam
-          de engenharia de verdade!
+          Sistemas - Sites - Aplicativos - Automações. Para empresas que precisam
+          de engenharia de verdade.
         </p>
         <div data-hero-in className="mt-8 flex flex-wrap items-center gap-3">
           <a

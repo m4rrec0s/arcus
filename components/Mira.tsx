@@ -42,7 +42,7 @@ export default function Mira() {
   return (
     <section id="diferencial" className="chapter relative overflow-hidden py-28 md:py-36" aria-labelledby="mira-title">
       <div className="mx-auto max-w-6xl px-6">
-        <p className="font-data mb-4 text-[11px] tracking-[0.4em] text-[#C9B896]">06 — DIFERENCIAL</p>
+        <p className="font-data mb-4 text-[11px] tracking-[0.4em] text-[#C9B896]">04 — DIFERENCIAL</p>
         <h2 id="mira-title" className="font-display max-w-2xl text-3xl text-zinc-50 md:text-5xl">
           Um problema por vez, <span className="text-[#C9B896]">resolvido de verdade.</span>
         </h2>
@@ -50,7 +50,7 @@ export default function Mira() {
         <div className="mt-12 max-w-2xl">
           <Reveal>
             <p className="mt-4 text-base leading-7 text-zinc-400 md:text-lg">
-              A maioria dos projetos de software falha por escopo inchado, não por falta de tecnologia. Por isso cada projeto ARCUS começa com um objetivo escrito e mensurável — e termina quando esse objetivo é entregue, não quando o orçamento acaba.
+              A maioria dos projetos de software falha por excesso de funcionalidades e escopo desnecessário. Por isso, cada projeto da Arcus começa com um objetivo claro e bem definido.
             </p>
           </Reveal>
         </div>
@@ -83,14 +83,14 @@ export default function Mira() {
           <Reveal>
             <h3 className="font-display text-3xl text-zinc-50 md:text-4xl">Como isso aparece no seu projeto</h3>
             <ul className="font-data mt-4 space-y-3 text-[11px] leading-5 tracking-[0.12em] text-[#C9B896]">
-              <li>Escopo fechado antes de começar — sem &quot;enquanto isso, dá pra...&quot;</li>
-              <li>Prazo combinado e cumprido, com atualizações no caminho</li>
-              <li>Métrica de sucesso definida junto com você, não depois</li>
+              <li>Projeto bem definido antes de começar.</li>
+              <li>Prazo combinado e cumprido, com apresentação de protótipos ao longo do processo.</li>
+              <li>Métrica de sucesso definida junto com você.</li>
             </ul>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="max-w-xl text-sm leading-7 text-zinc-400 md:text-base">
-              Isso significa menos reunião de alinhamento, menos retrabalho e um sistema que resolve o que precisava resolver — nem mais, nem menos.
+              Isso significa menos reunião de alinhamento, menos retrabalho e um sistema que resolve o que precisava resolver.
             </p>
           </Reveal>
         </div>

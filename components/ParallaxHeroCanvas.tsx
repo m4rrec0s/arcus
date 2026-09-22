@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useMemo, useRef } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
@@ -66,6 +66,28 @@ function LocalBow() {
 
 export default function ParallaxHeroCanvas({ profile }: { profile: Exclude<MotionProfile, "static"> }) {
   const ref = useRef<HTMLDivElement>(null);
+  const [isActive, setIsActive] = useState(true);
+  const isActiveRef = useRef(true);
+
+  useEffect(() => {
+    const services = document.getElementById("servicos");
+    if (!services) return;
+
+    const updateActivity = () => {
+      const nextActive = services.getBoundingClientRect().top > 0;
+      if (nextActive === isActiveRef.current) return;
+      isActiveRef.current = nextActive;
+      setIsActive(nextActive);
+    };
+
+    updateActivity();
+    window.addEventListener("scroll", updateActivity, { passive: true });
+    window.addEventListener("resize", updateActivity);
+    return () => {
+      window.removeEventListener("scroll", updateActivity);
+      window.removeEventListener("resize", updateActivity);
+    };
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -89,7 +111,7 @@ export default function ParallaxHeroCanvas({ profile }: { profile: Exclude<Motio
       <div data-pl="backdrop" className="absolute inset-0 bg-[#0A0A0C]" />
       <div data-pl="backdrop" className="absolute -right-[20%] top-[-20%] size-[80vw] rounded-full bg-[radial-gradient(circle,rgba(201,184,150,.18),transparent_65%)] opacity-50" />
       <div data-pl="manifesto-backdrop" className="absolute inset-0 bg-[radial-gradient(circle_at_58%_42%,rgba(201,184,150,.16),transparent_28%),linear-gradient(#0A0A0C,transparent_45%,#0A0A0C)] opacity-0" />
-      <div data-pl="arch" className="absolute inset-0 [transform-style:preserve-3d]"><div data-pl="media" className="absolute inset-0 will-change-transform"><Canvas frameloop="demand" dpr={profile === "full" ? [1, 1.5] : 1} gl={{ antialias: profile === "full", alpha: true, powerPreference: "low-power" }} camera={{ position: [0, 0, 7.8], fov: 50 }}><ambientLight intensity={0.65} color="#5a3824" /><directionalLight position={[5, 7, 4]} intensity={3.8} color="#ffd49b" /><directionalLight position={[-4, 2, 5]} intensity={0.9} color="#9a5d30" /><Suspense fallback={null}><LocalBow /></Suspense></Canvas></div></div>
+      <div data-pl="arch" className="absolute inset-0 [transform-style:preserve-3d]"><div data-pl="media" className="absolute inset-0 will-change-transform"><Canvas frameloop={isActive ? "demand" : "never"} dpr={[1, 1.25]} gl={{ antialias: false, alpha: true, powerPreference: "low-power" }} camera={{ position: [0, 0, 7.8], fov: 50 }}><ambientLight intensity={0.65} color="#5a3824" /><directionalLight position={[5, 7, 4]} intensity={3.8} color="#ffd49b" /><directionalLight position={[-4, 2, 5]} intensity={0.9} color="#9a5d30" /><Suspense fallback={null}><LocalBow /></Suspense></Canvas></div></div>
       <div data-pl="backdrop" className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,10,12,.5)_0%,rgba(10,10,12,.12)_58%,rgba(10,10,12,.2)_100%)]" />
     </div>
   );

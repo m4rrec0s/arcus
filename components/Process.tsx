@@ -8,10 +8,10 @@ import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 const STEPS = [
-  { title: "Diagnóstico", desc: "Entendemos sua meta, seu prazo e o que conta como sucesso — em conversa direta, sem questionário genérico." },
-  { title: "Arquitetura", desc: "Definimos stack, estrutura técnica e cronograma antes de escrever a primeira linha de código." },
-  { title: "Desenvolvimento", desc: "Entregas em ciclos curtos, com acesso a uma versão de teste desde a primeira semana — você acompanha o progresso, não espera às cegas." },
-  { title: "Entrega & suporte", desc: "Deploy monitorado, documentação de handover e um período de suporte incluído para ajustes pós-lançamento." },
+  { title: "Diagnóstico", desc: "Conversamos para entender o que você precisa, o que é prioridade e qual vai ser a arquitetura usada." },
+  { title: "Arquitetura", desc: "Transformamos essa conversa em um plano simples: o que será feito, como vai funcionar e quanto tempo deve levar." },
+  { title: "Desenvolvimento", desc: "Construímos por etapas e mostramos versões funcionando ao longo do caminho, para você acompanhar tudo antes da entrega final." },
+  { title: "Entrega e suporte", desc: "Colocamos o sistema no ar, explicamos como usar e acompanhamos os primeiros ajustes para garantir que tudo funcione bem." },
 ];
 
 export default function Process() {
@@ -52,7 +52,7 @@ export default function Process() {
     <section ref={ref} id="processo" className="chapter overflow-hidden py-24 md:py-36" aria-labelledby="processo-title">
       <div className="mx-auto max-w-6xl px-6">
         <p className="font-data mb-4 text-[11px] tracking-[0.4em] text-[#C9B896]">03 — COMO TRABALHAMOS</p>
-        <h2 id="processo-title" className="font-display max-w-2xl text-3xl text-zinc-50 md:text-5xl">Do diagnóstico à entrega, sem etapa escondida.</h2>
+        <h2 id="processo-title" className="font-display max-w-2xl text-3xl text-zinc-50 md:text-5xl">Do diagnóstico à entrega.</h2>
 
         <div data-track className="relative mt-14 grid gap-10 md:grid-cols-[120px_1fr]">
           {/* curved SVG trajectory */}
