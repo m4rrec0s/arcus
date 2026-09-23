@@ -27,8 +27,7 @@ export default function ParallaxHero() {
   const [loadCanvas, setLoadCanvas] = useState(false);
 
   useEffect(() => {
-    // O modelo GLB somente entra em dispositivos capazes de executar o perfil completo.
-    if (profile !== "full") return;
+    if (profile === "static") return;
     const start = () => setLoadCanvas(true);
     const idle = window.requestIdleCallback?.(start, { timeout: 1200 });
     const timeout = window.setTimeout(start, 1200);
@@ -38,6 +37,6 @@ export default function ParallaxHero() {
     };
   }, [profile]);
 
-  if (profile !== "full" || !loadCanvas) return <Fallback />;
+  if (profile === "static" || !loadCanvas) return <Fallback />;
   return <ParallaxHeroCanvas profile={profile} />;
 }

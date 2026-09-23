@@ -25,14 +25,17 @@ export function useMotionProfile() {
     const frame = requestAnimationFrame(() => {
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const connection = (navigator as Navigator & { connection?: ConnectionInfo }).connection;
-      const constrained =
+      const avoidMotion =
+        reduced ||
         connection?.saveData ||
         connection?.effectiveType === "slow-2g" ||
         connection?.effectiveType === "2g" ||
-        navigator.hardwareConcurrency <= 4 ||
-        window.innerWidth < 768;
+        !supportsWebGL();
+      const constrained =
+        connection?.effectiveType === "3g" ||
+        navigator.hardwareConcurrency <= 4;
 
-      if (!reduced && supportsWebGL()) setProfile(constrained ? "light" : "full");
+      if (!avoidMotion) setProfile(constrained ? "light" : "full");
     });
     return () => cancelAnimationFrame(frame);
   }, []);
