@@ -5,7 +5,7 @@ import Image from "next/image";
 import { MessageCircle, Send } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
-const WHATSAPP = "https://wa.me/5583999435731?text=Ol%C3%A1%2C%20quero%20mirar%20meu%20pr%C3%B3ximo%20projeto%20com%20a%20ARCUS.";
+const WHATSAPP = "https://wa.me/5583986738642?text=Ol%C3%A1%2C%20quero%20mirar%20meu%20pr%C3%B3ximo%20projeto%20com%20a%20ARCUS.";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -16,7 +16,7 @@ export default function Contact() {
     const nome = String(data.get("nome") || "");
     const msg = String(data.get("mensagem") || "");
     const email = String(data.get("email") || "");
-    const url = `https://wa.me/5583999435731?text=${encodeURIComponent(`Olá, sou ${nome}. ${msg} (${email})`)}`;
+    const url = `https://wa.me/5583986738642?text=${encodeURIComponent(`Olá, sou ${nome}. ${msg} (${email})`)}`;
     window.open(url, "_blank", "noopener");
     setSent(true);
   };
